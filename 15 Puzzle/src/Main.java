@@ -3,7 +3,7 @@ import java.util.Collections;
 
 public class Main {
 	protected Node dummy;
-	
+	protected Node tail;
 	static class Node{
 		int data;
 		Node next;
@@ -15,6 +15,9 @@ public class Main {
 	}
 	
 	Main(){
+		Start();
+	}
+	public void Start() {
 		ArrayList<Integer> numbers = new ArrayList<>();
         
         // Adding numbers from 1 to 15 to the list
@@ -24,19 +27,49 @@ public class Main {
         // Shuffling the list
         Collections.shuffle(numbers);
 		dummy = new Node(0,null);
-		int i =1;
-		for(Node p = dummy; p!=null && i<16; p = p.next, i++) {
-			Node newNode = new Node(numbers.get(i), null);
-			dummy.next = newNode;
-		}
+		Node p = dummy;
+	    for (int i = 0; i < numbers.size(); i++) {
+	        Integer number = numbers.get(i);
+	        p.next = new Node(number, null);
+	        p = p.next;
+	    }
+	    tail = new Node(0,null);
+	    p.next = tail;
 	}
-	public void Start() {
-		new Main();
-	}
+	
+	public int getData(int index) {
+        Node current = dummy.next;
+        for (int i = 0; i < index; i++) {
+            if (current == null) return -1; // Index out of bounds
+            current = current.next;
+        }
+        return current.data;
+    }
+	
+	public Node findNode(int data) {
+		Node current = dummy.next;
+	    while (current != null) {
+	        if (current.data == data) return current;
+	        current = current.next;
+	    }
+	    return null;
+    }
+	
 	public void printList() {
-		for(Node p = dummy; p!=null;p=p.next) {
-			System.out.println(p.data);
+		for(int i = 0; i<16;i++) {
+			System.out.println(getData(i));
 		}
+	}
+	
+	public void cheatList() {
+		Node p = dummy;
+		dummy.next = null;
+	    for (int i = 1; i < 16; i++) {
+	        p.next = new Node(i, null);
+	        p = p.next;
+	    }
+	    tail = new Node(0,null);
+	    p.next = tail;
 	}
 	
 }

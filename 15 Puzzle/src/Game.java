@@ -6,14 +6,8 @@ public class Game extends Main {
         this.main = main;
     }
 	public boolean gameRules() {
-		for(Node p = dummy; p!=null;) {
-			for(int i = 1; i<16 ;i++) {
-				if(p.next.data==i) {
-					p=p.next;
-				}
-				else return false;
-			}
-			return true;
+		for(int i = 0; i<15; i++) {
+			if(main.getData(i)!=i+1) return false;
 		}
 		return true;
 	}
