@@ -106,14 +106,17 @@ public class Grid extends JFrame{
 	 */
 	private void applyChanges(Main.Node node) {
 		if(node == null) return;
-		Main.Node zeroNode = main.findNode(0); // Assuming you have a method findNode in your Main class
-        if (zeroNode != null) {
+		Main.Node zeroNode = main.findNode(0);
+		int zeroIndex = main.findIndex(0);
+		int nodeIndex = main.findIndex(node.data);
+		
+        if (myGame.isValidMove(zeroIndex, nodeIndex)) {
             int temp = node.data;
             node.data = zeroNode.data;
             zeroNode.data = temp;
             updateGrid();
         } else {
-            JOptionPane.showMessageDialog(this, "Unable to find the empty cell (0) for swapping.");
+            JOptionPane.showMessageDialog(this, "Action not Allowed");
         }
 	}
 	

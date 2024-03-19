@@ -55,6 +55,17 @@ public class Main {
 	    return null;
     }
 	
+	public int findIndex(int data) {
+		Node current = dummy.next;
+		int count = 0;
+	    while (current != null) {
+	        if (current.data == data) return count;
+	        current = current.next;
+	        count++;
+	    }
+	    return count;
+    }
+	
 	public void printList() {
 		for(int i = 0; i<16;i++) {
 			System.out.println(getData(i));
