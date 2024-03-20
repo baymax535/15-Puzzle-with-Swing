@@ -1,7 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
+/**
+ * 
+ * @author Labib
+ * CLass for Button Mode Layout
+ */
 public class GridButtons extends JFrame {
     /**
 	 * 

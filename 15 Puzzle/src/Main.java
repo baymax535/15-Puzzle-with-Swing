@@ -2,6 +2,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import javax.swing.SwingUtilities;
+/**
+ * 
+ * @author labib
+ * Main class to run Game
+ * 
+ */
 
 public class Main {
 	protected Node dummy;

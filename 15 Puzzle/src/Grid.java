@@ -3,6 +3,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * 
+ * @author Labib
+ * Class for text mode Layout
+ */
 
 public class Grid extends JFrame{
 	/**

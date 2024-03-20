@@ -1,4 +1,8 @@
-
+/**
+ * 
+ * @author Labib
+ * Class for Game rules and restrictions
+ */
 public class Game extends Main {
 	
 	Main main;

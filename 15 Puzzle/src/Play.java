@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 /**
  * 
- * @author labib
+ * @author Labib
  * Class For Menu and Modes
  * 
  */
@@ -16,7 +16,7 @@ public class Play extends JFrame {
 	private static final long serialVersionUID = 2856119320522263835L;
 	private JButton startEasyButton, startMediumButton, quitButton;
     public Play() {
-        setTitle("Sudoku Game Menu");
+        setTitle("15 Puzzle Game Menu");
         setSize(400, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new GridLayout(1, 3));
