@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
+import javax.swing.SwingUtilities;
+
 public class Main {
 	protected Node dummy;
 	protected Node tail;
@@ -81,6 +83,12 @@ public class Main {
 	    }
 	    tail = new Node(0,null);
 	    p.next = tail;
+	}
+	
+	public static void main (String[] args) {
+		SwingUtilities.invokeLater(() -> {
+            new Play().setVisible(true);
+        });
 	}
 	
 }

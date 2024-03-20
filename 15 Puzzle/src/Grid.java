@@ -119,10 +119,4 @@ public class Grid extends JFrame{
             JOptionPane.showMessageDialog(this, "Action not Allowed");
         }
 	}
-	
-	public static void main (String[] args) {
-		SwingUtilities.invokeLater(() -> {
-            new Grid();
-        });
-	}
 }
