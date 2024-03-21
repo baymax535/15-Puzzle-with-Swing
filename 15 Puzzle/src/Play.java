@@ -14,29 +14,38 @@ public class Play extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 2856119320522263835L;
-	private JButton startEasyButton, startMediumButton, quitButton;
+	private JButton startText, startButton, startLogo, quitButton;
     public Play() {
         setTitle("15 Puzzle Game Menu");
         setSize(400, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLayout(new GridLayout(1, 3));
+        setLayout(new GridLayout(2, 2));
      // Create Start button
-        startEasyButton = new JButton("Text Mode");
-        startEasyButton.addActionListener(new ActionListener() {
+        startText = new JButton("Text Mode");
+        startText.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 startGame(0);
             }
         });
-        add(startEasyButton);
+        add(startText);
         
      // Create Start button
-        startMediumButton = new JButton("Button Mode");
-        startMediumButton.addActionListener(new ActionListener() {
+        startButton = new JButton("Button Mode");
+        startButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 startGame(1);
             }
         });
-        add(startMediumButton);
+        add(startButton);
+        
+     // Create Start button
+        startLogo = new JButton("Logo Mode");
+        startLogo.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                startGame(2);
+            }
+        });
+        add(startLogo);
         
      // Create Quit button
         quitButton = new JButton("Quit");
@@ -60,6 +69,13 @@ public class Play extends JFrame {
             Main main = new Main();
             SwingUtilities.invokeLater(() -> {
                 new GridButtons();
+            });
+        main.Start();
+    	}
+    	else if(x==2) {
+            Main main = new Main();
+            SwingUtilities.invokeLater(() -> {
+                new GridLogos();
             });
         main.Start();
     	}

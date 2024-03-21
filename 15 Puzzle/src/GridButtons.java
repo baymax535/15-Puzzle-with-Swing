@@ -29,7 +29,7 @@ public class GridButtons extends JFrame {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 gridButtons[i][j] = new JButton(String.valueOf(main.getData(count)));
-                gridButtons[i][j].addActionListener(new ButtonClickListener());
+                gridButtons[i][j].addActionListener(new ButtonClickListener(i,j));
                 add(gridButtons[i][j]);
                 count++;
             }
@@ -88,15 +88,17 @@ public class GridButtons extends JFrame {
     }
 
     private class ButtonClickListener implements ActionListener {
-        
+    	
+    	private int row;
+        private int col;
 
-        public ButtonClickListener() {
-           
+        public ButtonClickListener(int row, int col) {
+            this.row = row;
+            this.col = col;
         }
 
         public void actionPerformed(ActionEvent e) {
-            JButton clickedButton = (JButton) e.getSource();
-            int clickedValue = Integer.parseInt(clickedButton.getText());
+            int clickedValue = main.getData(row * 4 + col);
             Main.Node clickedNode = main.findNode(clickedValue);
             Main.Node zeroNode = main.findNode(0);
             int zeroIndex = main.findIndex(0);
