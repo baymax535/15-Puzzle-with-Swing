@@ -2,10 +2,7 @@
 This is a simple Java program implementing the classic 15 Puzzle game. The project was inspired by my experiences in class and during my previous project involving Sudoku. I remember playing the 15 Puzzle game as a child, so I decided to apply my Swing and Java skills to create this version.
 
 ### Features
-Implemented using Java Swing for the graphical interface.
-Utilizes linked lists for game functionality.
-Designed to be a fun and engaging project to work on.
-All the logics for this game was my original even though I knew how the game works, the code to implement that was mine!
+Implemented using Java Swing for the graphical interface and linked lists for game functionality, this project is designed to be a fun and engaging endeavor. All the game logic is original, showcasing my coding prowess in implementing the intricate mechanics of Sudoku, even though I understood the game's principles beforehand.
 ### How to Play
 Launch the game.
 Click on the "Random" button to shuffle the tiles.
