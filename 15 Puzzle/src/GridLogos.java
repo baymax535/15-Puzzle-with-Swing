@@ -16,7 +16,7 @@ public class GridLogos extends JFrame {
         main = new Main();
         myGame = new Game(main);
         setTitle("15 Puzzle");
-        setSize(500, 550);
+        setSize(500, 667);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new GridLayout(5, 4));
 
@@ -72,9 +72,10 @@ public class GridLogos extends JFrame {
             for (int j = 0; j < 4; j++) {
                 int number = main.getData(i * 4 + j); // Get number from the board
                 String imagePath = "C:\\Users\\labib\\git\\repository4\\15 Puzzle\\src\\Numbers Lavender\\" + number + ".jpeg";
+                imagePath = "C:\\Users\\labib\\git\\repository4\\15 Puzzle\\src\\RDR2\\" + number + ".jpg";
                 ImageIcon icon = new ImageIcon(imagePath);
                 Image originalImage = icon.getImage();
-                Image scaledImage = originalImage.getScaledInstance(145, 130, Image.SCALE_SMOOTH);
+                Image scaledImage = originalImage.getScaledInstance(119, 127, Image.SCALE_SMOOTH);
                 ImageIcon scaledIcon = new ImageIcon(scaledImage);
                 gridButtons[i][j] = new JButton(scaledIcon);
                 gridButtons[i][j].addActionListener(new ButtonClickListener(i, j)); // Pass grid coordinates to identify the button
@@ -88,9 +89,10 @@ public class GridLogos extends JFrame {
             for (int j = 0; j < 4; j++) {
                 int number = main.getData(i * 4 + j);
                 String imagePath = "C:\\Users\\labib\\git\\repository4\\15 Puzzle\\src\\Numbers Lavender\\" + number + ".jpeg";
+                imagePath = "C:\\Users\\labib\\git\\repository4\\15 Puzzle\\src\\RDR2\\" + number + ".jpg";
                 ImageIcon icon = new ImageIcon(imagePath);
                 Image originalImage = icon.getImage();
-                Image scaledImage = originalImage.getScaledInstance(145, 130, Image.SCALE_SMOOTH);
+                Image scaledImage = originalImage.getScaledInstance(119, 127, Image.SCALE_SMOOTH);
                 ImageIcon scaledIcon = new ImageIcon(scaledImage);
                 gridButtons[i][j].setIcon(scaledIcon);
             }
