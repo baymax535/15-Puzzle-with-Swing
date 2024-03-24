@@ -11,8 +11,9 @@ public class GridLogos extends JFrame {
     private JButton doneButton, startButton, cheatButton, quitButton;
     private Main main;
     private Game myGame;
-
-    public GridLogos() {
+    private int version;
+    public GridLogos(int x) {
+    	version = x;
         main = new Main();
         myGame = new Game(main);
         setTitle("15 Puzzle");
@@ -23,13 +24,13 @@ public class GridLogos extends JFrame {
         gridButtons = new JButton[4][4];
 
         // Initialize grid buttons with images according to the game board
-        initializeGrid();
+        initializeGrid(x);
 
         startButton = new JButton("Random");
         startButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 main.Start();
-                updateGrid();
+                updateGrid(x);
             }
         });
         add(startButton);
@@ -51,7 +52,7 @@ public class GridLogos extends JFrame {
         cheatButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 main.cheatList();
-                updateGrid();
+                updateGrid(x);
             }
         });
         add(cheatButton);
@@ -67,12 +68,17 @@ public class GridLogos extends JFrame {
         setVisible(true);
     }
 
-    private void initializeGrid() {
+    private void initializeGrid(int x) {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 int number = main.getData(i * 4 + j); // Get number from the board
-                String imagePath = "C:\\Users\\labib\\git\\repository4\\15 Puzzle\\src\\Numbers Lavender\\" + number + ".jpeg";
-                imagePath = "C:\\Users\\labib\\git\\repository4\\15 Puzzle\\src\\RDR2\\" + number + ".jpg";
+                String imagePath = "";
+                if(x==0) {
+                	imagePath = "C:\\Users\\labib\\git\\repository4\\15 Puzzle\\src\\Numbers Lavender\\" + number + ".jpeg";
+                }
+                else if (x==1) {
+                    imagePath = "C:\\Users\\labib\\git\\repository4\\15 Puzzle\\src\\RDR2\\" + number + ".jpg";
+                }
                 ImageIcon icon = new ImageIcon(imagePath);
                 Image originalImage = icon.getImage();
                 Image scaledImage = originalImage.getScaledInstance(119, 127, Image.SCALE_SMOOTH);
@@ -84,12 +90,17 @@ public class GridLogos extends JFrame {
         }
     }
 
-    private void updateGrid() {
+    private void updateGrid(int x) {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 int number = main.getData(i * 4 + j);
-                String imagePath = "C:\\Users\\labib\\git\\repository4\\15 Puzzle\\src\\Numbers Lavender\\" + number + ".jpeg";
-                imagePath = "C:\\Users\\labib\\git\\repository4\\15 Puzzle\\src\\RDR2\\" + number + ".jpg";
+                String imagePath = "";
+                if(x==0) {
+                	imagePath = "C:\\Users\\labib\\git\\repository4\\15 Puzzle\\src\\Numbers Lavender\\" + number + ".jpeg";
+                }
+                else if (x==1) {
+                    imagePath = "C:\\Users\\labib\\git\\repository4\\15 Puzzle\\src\\RDR2\\" + number + ".jpg";
+                }
                 ImageIcon icon = new ImageIcon(imagePath);
                 Image originalImage = icon.getImage();
                 Image scaledImage = originalImage.getScaledInstance(119, 127, Image.SCALE_SMOOTH);
@@ -119,7 +130,7 @@ public class GridLogos extends JFrame {
                 int temp = clickedNode.data;
                 clickedNode.data = zeroNode.data;
                 zeroNode.data = temp;
-                updateGrid();
+                updateGrid(version);
             } else {
                 JOptionPane.showMessageDialog(GridLogos.this, "Action not Allowed");
             }

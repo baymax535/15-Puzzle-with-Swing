@@ -14,7 +14,7 @@ public class Play extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 2856119320522263835L;
-	private JButton startText, startButton, startLogo, quitButton;
+	private JButton startText, startButton, startPicture, startNumber, quitButton;
     public Play() {
         setTitle("15 Puzzle Game Menu");
         setSize(400, 500);
@@ -39,13 +39,22 @@ public class Play extends JFrame {
         add(startButton);
         
      // Create Start button
-        startLogo = new JButton("Logo Mode");
-        startLogo.addActionListener(new ActionListener() {
+        startNumber = new JButton("Number Mode");
+        startNumber.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 startGame(2);
             }
         });
-        add(startLogo);
+        add(startNumber);
+        
+     // Create Start button
+        startPicture = new JButton("Picture Mode");
+        startPicture.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                startGame(3);
+            }
+        });
+        add(startPicture);
         
      // Create Quit button
         quitButton = new JButton("Quit");
@@ -75,7 +84,14 @@ public class Play extends JFrame {
     	else if(x==2) {
             Main main = new Main();
             SwingUtilities.invokeLater(() -> {
-                new GridLogos();
+                new GridLogos(0);
+            });
+        main.Start();
+    	}
+    	else if(x==3) {
+            Main main = new Main();
+            SwingUtilities.invokeLater(() -> {
+                new GridLogos(1);
             });
         main.Start();
     	}
